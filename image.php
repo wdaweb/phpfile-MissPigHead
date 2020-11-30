@@ -81,13 +81,6 @@ if(!empty($_FILES['photo']['tmp_name'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>圖形處理練習</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        div{
-            width:500px;
-            margin:10px auto;
-            text-align:center;
-        }
-    </style>
 </head>
 <body>
 <h1 class="header">圖形處理練習</h1>
@@ -102,7 +95,7 @@ if(!empty($_FILES['photo']['tmp_name'])){
 <h3>原始圖形</h3>
 <br>
 
-<div>
+<div class="divcen">
     <img src="<?="./uploadFiles/".$_FILES['photo']['name'];?>" alt="" width="500px">
 </div>
 <hr>
@@ -118,7 +111,7 @@ if(isset($src_img) && isset($dst_img)){
     imagejpeg($dst_img,"./dst/".$_FILES['photo']['name']);
 }
 ?>
-<div>
+<div class="divcen">
     <img src="<?="./dst/".$_FILES['photo']['name'];?>">
 </div>
 <hr>
