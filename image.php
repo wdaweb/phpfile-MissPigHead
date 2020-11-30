@@ -82,8 +82,10 @@ if(!empty($_FILES['photo']['tmp_name'])){
     <title>圖形處理練習</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .centerdiv{
-
+        div{
+            width:500px;
+            margin:10px auto;
+            text-align:center;
         }
     </style>
 </head>
@@ -101,7 +103,7 @@ if(!empty($_FILES['photo']['tmp_name'])){
 <br>
 
 <div>
-    <img src="<?="./uploadFiles/".$_FILES['photo']['name'];?>" alt="" width="500px" class="centerdiv">
+    <img src="<?="./uploadFiles/".$_FILES['photo']['name'];?>" alt="" width="500px">
 </div>
 <hr>
 
@@ -117,7 +119,7 @@ if(isset($src_img) && isset($dst_img)){
 }
 ?>
 <div>
-    <img src="<?="./dst/".$_FILES['photo']['name'];?>" class="centerdiv">
+    <img src="<?="./dst/".$_FILES['photo']['name'];?>">
 </div>
 <hr>
 
