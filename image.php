@@ -65,6 +65,10 @@ if(!empty($_FILES['photo']['tmp_name'])){
         $dst_x=($dst_h-$dst_w)/2;
     }
 
+    // 這兩行加入  等比例  背景穿幫的顏色
+    $bgcolor=imagecolorallocate($dst_img, 255, 230, 240);
+    imagefill($dst_img,0,0,$bgcolor);
+
 }
 
 
@@ -79,7 +83,7 @@ if(!empty($_FILES['photo']['tmp_name'])){
     <link rel="stylesheet" href="style.css">
     <style>
         .centerdiv{
-            
+
         }
     </style>
 </head>
