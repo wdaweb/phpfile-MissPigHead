@@ -14,12 +14,18 @@ include_once ("base.php");
 if($_GET['do']=='download'){
     $rows=all('students');
     $file=fopen('donwload.csv',"w+");
+        //寫入BOM檔頭
+        $utf8_with_bom = chr(239) . chr(187) . chr(191);
+        fwrite($file,$utf8_with_bom);
     foreach($rows as $row){
-        $line=implode(",",array_values($row));
+        // foreach($row as $v){
+        // }
+        $line=implode(",",$row);
         fwrite($file,$line);
         echo $line." 已寫入檔案<br>";
     }
     fclose($file);
+    $filename="download.csv";
 }
 
 ?>
@@ -35,6 +41,16 @@ if($_GET['do']=='download'){
 <body>
 <h1 class="header">文字檔案匯出練習</h1>
 <!----讀出匯入完成的資料----->
+
+<?php
+if(isset($filename)){
+?>
+
+<a href="download.csv" download>請下載</a>
+
+<?php
+}
+?>
 
 
 <table class="table text-center">
