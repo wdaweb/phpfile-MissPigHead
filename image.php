@@ -52,8 +52,10 @@ if(!empty($_FILES['photo']['tmp_name'])){
     
     // $src_ratio=$src_img['width']/$src_img['height'];
     $dst_img=imagecreatetruecolor(300,300);
-    $dst_w=300;
-    $dst_h=300;
+    $frame_w=300;
+    $frame_h=300;
+    $dst_w=$frame_w;
+    $dst_h=$frame_h;
     $dst_x=0;
     $dst_y=0;
     $src_ratio=imagesx($src_img)/imagesy($src_img);
@@ -118,6 +120,34 @@ if(isset($src_img) && isset($dst_img)){
 
 
 <!----圖形加邊框----->
+
+<h3>圖形加邊框</h3>
+<br>
+<?php
+$border=5;
+$padding=10;
+
+$bor_w=($frame_w-($padding+$border)*2);
+$bor_h=($frame_h-($padding+$border)*2);
+
+
+if($src_ratio>1){
+    $bor_h=($dst_w-($padding+$border)*2)/$src_ratio;
+}elseif($src_ratio<1){
+    $bor_w=($dst_h-$padding*2)*$src_ratio;
+}
+
+
+
+$img_bor=imagecreatetruecolor($bor_w,$bor_h);
+imagecopyresampled($img_bor,$src_img,0,0,0,0,$bor_w,$bor_h,imagesx($src_img),imagesy($src_img));
+imagejpeg($img_bor,"./dst/bor_".$_FILES['photo']['name']);
+?>
+<div class="divcen">
+    <img src="<?="./dst/bor_".$_FILES['photo']['name'];?>" style="border: 5px solid #f00; padding:10px;">
+</div>
+<hr>
+
 
 
 <!----產生圖形驗證碼----->
