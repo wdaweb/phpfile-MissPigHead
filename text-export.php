@@ -46,7 +46,7 @@ if($_GET['do']=='download'){
 if(isset($filename)){
 ?>
 
-<a href="download.csv" download>請下載</a>
+<a href='donwload.csv' download>請下載</a>
 
 <?php
 }

@@ -152,6 +152,34 @@ imagejpeg($img_bor,"./dst/bor_".$_FILES['photo']['name']);
 
 <!----產生圖形驗證碼----->
 
+<h3>圖形加邊框</h3>
+<br>
+<hr>
+H2y66
+
+<?php
+
+$num=4; // 定義驗證碼字數
+
+$captcha[]='';
+
+for($i=0;$i<$num;$i++){
+    $n=rand(48,122);
+    if((57<$n && $n<65)||(90<$n && $n<97)){
+        do{$n=rand(48,122);}while((57<$n && $n<65)||(90<$n && $n<97));
+    }
+    $captcha[]=$n;
+}
+$captcha=implode("",$captcha);
+
+
+
+
+
+
+
+
+?>
 
 
 </body>

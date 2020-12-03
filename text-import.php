@@ -16,8 +16,6 @@ if(!empty($_FILES['txt']['tmp_name'])){
     move_uploaded_file($_FILES['txt']['tmp_name'],"./uploadFiles/".$_FILES['txt']['name']);
 
     $file=fopen("./uploadFiles/".$_FILES['txt']['name'],'r');
-    
-    
     $num=0;
     while(!feof($file)){
         $line=fgets($file); // 此時$line 是字串
